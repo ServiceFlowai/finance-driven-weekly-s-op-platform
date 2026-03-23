@@ -1,8 +1,21 @@
-export default function App() {
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Workflow from './pages/Workflow';
+import Alerts from './pages/Alerts';
+import AuditTrail from './pages/AuditTrail';
+
+function App() {
   return (
-    <div style={{ fontFamily: 'system-ui', padding: '2rem', maxWidth: 800, margin: '0 auto' }}>
-      <h1>Finance-Driven Weekly S&OP Platform</h1>
-      <p>Project scaffold ready. Start building!</p>
+    <div className="min-h-screen bg-gray-100">
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/workflow" element={<Workflow />} />
+        <Route path="/alerts" element={<Alerts />} />
+        <Route path="/audit-trail" element={<AuditTrail />} />
+      </Routes>
     </div>
   );
 }
+
+export default App;
