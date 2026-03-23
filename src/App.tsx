@@ -1,18 +1,21 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import { UserProvider } from './context/UserContext';
+import ForecastAccuracy from './pages/ForecastAccuracy';
+import ForecastSubmission from './pages/ForecastSubmission';
+import ForecastComparison from './pages/ForecastComparison';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <UserProvider>
+    <div className="min-h-screen bg-gray-100">
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/forecast-accuracy" element={<ForecastAccuracy />} />
+        <Route path="/forecast-submission" element={<ForecastSubmission />} />
+        <Route path="/forecast-comparison" element={<ForecastComparison />} />
       </Routes>
-    </UserProvider>
+    </div>
   );
-};
+}
 
 export default App;
