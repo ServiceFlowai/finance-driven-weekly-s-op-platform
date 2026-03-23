@@ -1,18 +1,21 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import { UserProvider } from './context/UserContext';
+import Escalation from './pages/Escalation';
+import SupplyFeasibility from './pages/SupplyFeasibility';
+import SupplyCosting from './pages/SupplyCosting';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <UserProvider>
+    <div className="min-h-screen bg-gray-100">
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/escalation" element={<Escalation />} />
+        <Route path="/supply-feasibility" element={<SupplyFeasibility />} />
+        <Route path="/supply-costing" element={<SupplyCosting />} />
       </Routes>
-    </UserProvider>
+    </div>
   );
-};
+}
 
 export default App;
