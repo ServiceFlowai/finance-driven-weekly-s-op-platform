@@ -1,29 +1,26 @@
 import React from 'react';
-import { useUser } from '../context/UserContext';
-import FinanceDashboard from '../components/FinanceDashboard';
-import SalesDashboard from '../components/SalesDashboard';
-import SupplyChainDashboard from '../components/SupplyChainDashboard';
-import ProcurementDashboard from '../components/ProcurementDashboard';
+import { Link } from 'react-router-dom';
 
-const Dashboard: React.FC = () => {
-  const { user } = useUser();
-
-  if (!user) {
-    return <div>Please log in to view your dashboard.</div>;
-  }
-
-  switch (user.role) {
-    case 'finance':
-      return <FinanceDashboard />;
-    case 'sales':
-      return <SalesDashboard />;
-    case 'supply_chain':
-      return <SupplyChainDashboard />;
-    case 'procurement':
-      return <ProcurementDashboard />;
-    default:
-      return <div>Invalid role</div>;
-  }
+const Dashboard = () => {
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Link to="/escalation" className="bg-white p-4 shadow rounded">
+          <h2 className="text-xl font-semibold">Exception-based Escalation</h2>
+          <p>Manage and escalate forecast misses and demand changes.</p>
+        </Link>
+        <Link to="/supply-feasibility" className="bg-white p-4 shadow rounded">
+          <h2 className="text-xl font-semibold">Supply Feasibility Check</h2>
+          <p>Assess demand plans against supply constraints.</p>
+        </Link>
+        <Link to="/supply-costing" className="bg-white p-4 shadow rounded">
+          <h2 className="text-xl font-semibold">Supply Costing Integration</h2>
+          <p>Review procurement cost changes and impacts.</p>
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;
